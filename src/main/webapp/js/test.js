@@ -37,7 +37,7 @@ function validateUserId() {
 	 }
    }
    
-   var userId = document.getElementById("userid").value; 
+   var userId = document.getElementById("userIdMessage").value; 
    
    var url = "http://kim-kim-project.a3c1.starter-us-west-1.openshiftapps.com/hello";
   
