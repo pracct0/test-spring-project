@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +21,7 @@ public class HelloWildFlyController {
     }
 
 
-    @PostMapping("/api/search")
+    @RequestMapping(value = "/api/search", method = RequestMethod.POST)
     public ResponseEntity<?> getSearchResultViaAjax(
             @Valid @RequestBody SearchCriteria search, Errors errors) {
 
@@ -38,9 +38,8 @@ public class HelloWildFlyController {
 
         }
 
-		
-        List<User> users = userService.findByUserNameOrEmail(search.getUsername());
-		List<User> users = new ArrayList<User>();
+	
+	List<User> users = new ArrayList<User>();
 
         User user1 = new User("mkyong", "password111", "mkyong@yahoo.com");
         User user2 = new User("yflow", "password222", "yflow@yahoo.com");
@@ -50,9 +49,7 @@ public class HelloWildFlyController {
         users.add(user2);
         users.add(user3);
 		
-		users = users.stream()
-            .filter(x -> x.getUsername().equalsIgnoreCase(username))
-            .collect(Collectors.toList());
+	users = users.stream().filter(x -> x.getUsername().equalsIgnoreCase(search.getUsername())).collect(Collectors.toList());
 		
         if (users.isEmpty()) {
             result.setMsg("no user found!");
