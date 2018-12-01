@@ -25,10 +25,12 @@ String sql = "CREATE TABLE TEST_TBL_1 " +
                    " PRIMARY KEY ( id ))"; 
 
 stmt.executeUpdate(sql);
-%>
+
 
 ResultSet rs = stmt.executeQuery("SELECT * FROM information_schema.tables");	   
-<TABLE  bgcolor=DodgerBlue>
+%>
+
+       <TABLE  bgcolor=DodgerBlue>
     <TR  bgcolor=SkyBlue>
     <TD><B>Column 1</B></TD>
     <TD><B>Column 2</B></TD>
