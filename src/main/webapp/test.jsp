@@ -14,9 +14,20 @@ Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sa
 
 Statement stmt = conn.createStatement();
 
-	  ResultSet rs = stmt.executeQuery("SELECT * FROM information_schema.tables");
+String sql = "CREATE TABLE TEST_TBL_1 " +
+                   "(id INTEGER not NULL, " +
+                   " var_col_1 VARCHAR(255), " + 
+                   " var_col_2 VARCHAR(255), " + 
+                   " var_col_3 VARCHAR(255), " + 
+                   " num_col_1 INTEGER, " + 
+                   " num_col_2 INTEGER, " + 
+                   " num_col_3 INTEGER, " + 
+                   " PRIMARY KEY ( id ))"; 
+
+stmt.executeUpdate(sql);
 %>
 
+ResultSet rs = stmt.executeQuery("SELECT * FROM information_schema.tables");	   
 <TABLE  bgcolor=DodgerBlue>
     <TR  bgcolor=SkyBlue>
     <TD><B>Column 1</B></TD>
