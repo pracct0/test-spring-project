@@ -10,7 +10,7 @@
          out.println("Your IP address is " + request.getRemoteAddr());
          
 Class.forName("com.mysql.jdbc.Driver");
-Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sampledb?useUnicode=true&characterEncoding=big5","root", "Icp3VBDabFPqkKym");
+Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sampledb?useUnicode=true&characterEncoding=big5","root", "Icp2VBDabFPqkKym");
 
 Statement stmt = conn.createStatement();
 
