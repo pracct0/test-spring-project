@@ -12,6 +12,19 @@
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sampledb?useUnicode=true&characterEncoding=big5","root", "Icp3VBDabFPqkKym");
 
+Statement stmt = conn.createStatement();
+
+DatabaseMetaData metadata = connection.getMetaData();
+
+	  String[] types = {"TABLE"};
+	  ResultSet rs = metadata.getTables(null, null, "%", types);
+
+while (rs.next()) {
+
+   out.println("Table : " + resultSet.getString(3) + "nCatalog : " + resultSet.getString(1) + "nSchema : " + resultSet.getString(2));
+
+rs.close();
+stmt.close();
 conn.close();
 
 out.println("End");
