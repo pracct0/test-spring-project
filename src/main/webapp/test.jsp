@@ -18,7 +18,7 @@ Statement stmt = conn.createStatement();
 
 while (rs.next()) {
 
-   out.println(r.getString(1));
+   out.println(rs.getString(1));
 }
 rs.close();
 stmt.close();
