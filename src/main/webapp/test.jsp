@@ -15,15 +15,34 @@ Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sa
 Statement stmt = conn.createStatement();
 
 	  ResultSet rs = stmt.executeQuery("SELECT * FROM information_schema.tables");
+%>
 
-while (rs.next()) {
+<TABLE  bgcolor=DodgerBlue>
+    <TR  bgcolor=SkyBlue>
+    <TD><B>Column 1</B></TD>
+    <TD><B>Column 2</B></TD>
+    <TD><B>Column 3</B></TD>
+    <TD><B>Column 4</B></TD>
+    <TD><B>Column 5</B></TD>
+    <TD><B>Column 6</B></TD>
+    </TR>   
+    <%
+    while (rs.next())
+    {
+        %>
+        <TR bgcolor=LightGoldenrodYellow>
+        <TD><B><%= rs.getString(1) %></B></TD>
+        <TD><B><%= rs.getString(2) %></B></TD>
+        <TD><B><%= rs.getString(3) %></B></TD> 
+        <TD><B><%= rs.getString(4) %></B></TD> 
+        <TD><B><%= rs.getString(5) %></B></TD> 
+        <TD><B><%= rs.getString(6) %></B></TD> 
+        </TR>
+        <%
+    }
+</TABLE>
 
-   out.println(rs.getString(1));
-   
-   out.println(rs.getString(2));
-   
-   out.println(rs.getString(3));
-}
+<%
 rs.close();
 stmt.close();
 conn.close();
