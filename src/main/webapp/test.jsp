@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=Big5"
+    import="java.sql.*"%>
+
 <html>
    <head><title>Hello World</title></head>
    
