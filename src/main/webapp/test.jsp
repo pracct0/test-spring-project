@@ -14,11 +14,11 @@ Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sa
 
 Statement stmt = conn.createStatement();
 
-	  ResultSet rs = stmt.executeQuery("SELECT table_name FROM information_schema.tables");
+	  ResultSet rs = stmt.executeQuery("SELECT * FROM information_schema.tables");
 
 while (rs.next()) {
 
-   out.println(resultSet.getString("table_name"));
+   out.println(resultSet.getString(1));
 }
 rs.close();
 stmt.close();
