@@ -10,11 +10,13 @@
          out.println("Your IP address is " + request.getRemoteAddr());
          
 Class.forName("com.mysql.jdbc.Driver");
-Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sampledb?useUnicode=true&characterEncoding=big5","root", "Icp3VBDabFPqkKym");
+Connection conn = DriverManager.getConnection("jdbc:mysql://10.131.4.22:3306/sampledb?useUnicode=true&characterEncoding=big5","root", "RWcAxXsGk3nRrMC3");
 
 Statement stmt = conn.createStatement();
 
-String sql = "CREATE TABLE TEST_TBL_1 " +
+%>
+<!--
+String sql = "CREATE TABLE TEST_TBL_2 " +
                    "(id INTEGER not NULL, " +
                    " var_col_1 VARCHAR(255), " + 
                    " var_col_2 VARCHAR(255), " + 
@@ -25,7 +27,8 @@ String sql = "CREATE TABLE TEST_TBL_1 " +
                    " PRIMARY KEY ( id ))"; 
 
 stmt.executeUpdate(sql);
-
+-->
+<%
 
 ResultSet rs = stmt.executeQuery("SELECT * FROM information_schema.tables");	   
 %>
