@@ -19,6 +19,10 @@ Statement stmt = conn.createStatement();
 while (rs.next()) {
 
    out.println(rs.getString(1));
+   
+   out.println(rs.getString(2));
+   
+   out.println(rs.getString(3));
 }
 rs.close();
 stmt.close();
