@@ -1,4 +1,3 @@
-<%@ page import="java.sql.*" %>
 
 <HTML>
     <HEAD>
