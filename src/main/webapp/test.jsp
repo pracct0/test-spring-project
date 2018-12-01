@@ -18,7 +18,7 @@ Statement stmt = conn.createStatement();
 
 while (rs.next()) {
 
-   out.println("Table : " + resultSet.getString(3) + "nCatalog : " + resultSet.getString(1) + "nSchema : " + resultSet.getString(2));
+   out.println(resultSet.getString("table_name"));
 }
 rs.close();
 stmt.close();
