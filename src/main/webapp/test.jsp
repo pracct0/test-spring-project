@@ -8,6 +8,14 @@
       Hello World!<br/>
       <%
          out.println("Your IP address is " + request.getRemoteAddr());
+         
+Class.forName("com.mysql.jdbc.Driver");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledb?useUnicode=true&characterEncoding=big5","root", "Icp3VBDabFPqkKym");
+
+conn.close();
+
+out.println("End");
+         
       %>
    </body>
 </html>
