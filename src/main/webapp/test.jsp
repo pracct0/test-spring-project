@@ -22,7 +22,7 @@ DatabaseMetaData metadata = connection.getMetaData();
 while (rs.next()) {
 
    out.println("Table : " + resultSet.getString(3) + "nCatalog : " + resultSet.getString(1) + "nSchema : " + resultSet.getString(2));
-
+}
 rs.close();
 stmt.close();
 conn.close();
