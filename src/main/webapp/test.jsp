@@ -40,6 +40,7 @@ Statement stmt = conn.createStatement();
         </TR>
         <%
     }
+    %>
 </TABLE>
 
 <%
