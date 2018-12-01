@@ -14,10 +14,7 @@ Connection conn = DriverManager.getConnection("jdbc:mysql://10.130.57.49:3306/sa
 
 Statement stmt = conn.createStatement();
 
-DatabaseMetaData metadata = connection.getMetaData();
-
-	  String[] types = {"TABLE"};
-	  ResultSet rs = metadata.getTables(null, null, "%", types);
+	  ResultSet rs = stmt.executeQuery("SELECT table_name FROM information_schema.tables");
 
 while (rs.next()) {
 
