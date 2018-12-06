@@ -5,12 +5,14 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder; 
+import org.springframework.boot.web.support.SpringBootServletInitializer; 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class ApplicationMainClass implements ApplicationRunner, CommandLineRunner {
+public class ApplicationMainClass extends SpringBootServletInitializer implements ApplicationRunner, CommandLineRunner {
 
 	private static Logger logger = Logger.getLogger(ApplicationMainClass.class.getName());
 
@@ -18,6 +20,12 @@ public class ApplicationMainClass implements ApplicationRunner, CommandLineRunne
 
 		SpringApplication.run(ApplicationMainClass.class, args);
 	}
+	
+  	@Override 
+    	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) { 
+	
+		return application.sources(ApplicationMainClass.class); 
+    	}	
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
